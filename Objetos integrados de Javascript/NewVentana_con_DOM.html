@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.bodyclass {
+			background-color: black;
+		}
+		.h1class{
+			color: green;
+		}
+		.linkclass {
+			color: yellow;
+		}
+	</style>
+	<script>
+		function abrir_paginas() {
+			
+			document.getElementById('body').className = "bodyclass";
+			document.getElementById('h1').className = "h1class";
+			document.getElementById('link').className = "linkclass";
+
+			window.open("Obj2.html");
+			window.open("Obj3.html");
+			window.open("Obj4.html");
+		}
+	</script>
+  </head>
+  <body id="body" onload="abrir_paginas()">
+    <h1 id="h1">Bienvenido a la página de <a id="link" href="mailto:alumnoscepibase@cepibase.com">Grim</a></h1>
+  </body>
+</html>

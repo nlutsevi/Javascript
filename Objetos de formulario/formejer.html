@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		function verificar() {
+			let correct = true;
+			let MP = document.getElementById('pago').value;
+
+			if (document.getElementById('nombre').value == "")
+				correct = false;
+			if (document.getElementById('apellidos').value == "")
+				correct = false;
+			if (MP[0].checked)
+			{
+				if (document.getElementById('numtarjeta').value == "")
+					correct=false;
+			}
+			
+			if(correct==false)
+				alert("Formulario incorrecto! Revise todos los campos")
+		}
+
+		function limpiar() {
+			document.getElementById('nombre').value = "";
+			document.getElementById('apellidos').value = "";
+			document.getElementById('numtarjeta').value = "";
+			document.getElementById('total').value = "";
+		}
+
+		function calcular(patatas, higos ,fresas, champu) {
+			let x1 = document.getElementById(patatas);
+			let x2 = document.getElementById(higos);
+			let x3 = document.getElementById(fresas);
+			let x4 = document.getElementById(champu);
+			let total = document.getElementById('total');
+			let calculo = 0;
+			if (x1.checked)
+				calculo = calculo + 3;
+			if (x2.checked)
+				calculo = calculo + 2;
+			if (x3.checked)
+				calculo = calculo + 5;
+			if (x4.checked)
+				calculo = calculo + 3;
+			total.value = calculo + " €";
+		}
+	</script>
+	<style>
+		table {
+            background-color: yellow;
+                color: green;
+                width:630px;
+                border:#000000 solid 1px;
+        }
+        td{border:#000000 solid 1px;}
+	</style>
+  </head>
+  <body>
+  <form method="POST" id="form1">
+	  <table>
+		  <tbody>
+			  <tr>
+				  <td>Nombre:</td>
+				  <td><input type="text" size="20" id="nombre"></td>
+				  <td>Apellidos:</td>
+				  <td><input type="text" size="20" id="apellidos"></td>
+			  </tr>
+			  <tr>
+				  <td>Capitales provincia:</td>
+				  <td colspan="4" align="center">
+					  <select id="capi" size="1">
+						  <option>Barcelona</option>
+						  <option>Madrid</option>
+						  <option>Málaga</option>
+						  <option>Sevilla</option>
+					  </select>
+				  </td>
+			  </tr>
+			  <tr>
+				  <td colspan="4">Forma de pago:</td>
+			  </tr>
+			  <tr>
+				  <td><input type="radio" id="pago" checked>Tarjeta de crédito</td>
+				  <td><input type="radio" id="pago">ContraReembolso</td>
+				  <td><input type="radio" id="pago">Contado</td>
+			  </tr>
+			  <tr>
+				  <td>Tarjetas:
+				  <select id="pago">
+					  <option>Visa</option>
+					  <option>Mastercard</option>
+					  <option>AmEx</option>
+				  </select></td>
+				  <td colspan="3">Num Tarjeta:
+				  <input type="text" size="20" id="numtarjeta"></td>
+			  </tr>
+			  <tr>
+				<td>&nbsp;</td>
+                <td colspan="3">&nbsp;</td>
+			  </tr>
+			  <tr>
+				  <td>Productos</td>
+				  <td colspan="3">&nbsp;</td>
+			  </tr>
+			  <tr>
+				  <td><input type="checkbox" id="patatas">Patatas (3€)</td>
+				  <td><input type="checkbox" id="higos">Higos (2€)</td>
+				  <td><input type="checkbox" id="fresas">Fresas (5€)</td>
+				  <td><input type="checkbox" id="champu">Champú (3€)</td>
+			  </tr>
+			  <tr>
+				  <td colspan="3" align="right">Total:</td>
+				  <td><input type="text" size="10" id="total"></td>
+			  </tr>
+			  <tr>
+				  <td colspan="2" align="center">
+					  <input type="button" id="enviar" value="enviar" onclick="verificar()">
+					  <input type="button" id="cancelar" value="cancelar" onclick="limpiar()">
+				  </td>
+				  <td>&nbsp;</td>
+				  <td><input type="button" value="calcular" onclick="calcular('patatas', 'higos', 'fresas', 'champu')"></td>
+			  </tr>
+		  </tbody>
+	  </table>
+  </form>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="formulariodojo.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/tundra/tundra.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js" data-dojo-config="parseOnLoad:true, async:true"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/humanity/jquery-ui.css">
+
+</head>
+  <body class="tundra">
+	  <script>
+		  	require(["dojo/parser","dijit/form/TextBox","dijit/form/ValidationTextBox", "dijit/form/Combobox", "dijit/form/DateTextBox"]);
+	  </script>
+	<div id="tabs">
+		<ul>
+			<li><a href="#capa1"><span>Inicial</span></a></li>
+			<li><a href="#capa2"><span>Primeras preguntas</span></a></li>
+			<li><a href="#capa3"><span>Segundas preguntas</span></a></li>
+			<li><a href="#capa4"><span>Terceras preguntas</span></a></li>
+		</ul>
+		<div id="capa1">
+			<h2>Bienvenido a nuestra encuesta de satisfacción</h2>
+			<p>Desplácese por las distintas fichas para contestar a la encuesta, cuando termine 
+				pulse el botón Enviar para finalizar la encuesta</p>
+			<p style="font-size: 10px;">Gracias por participar!</p>
+		</div>
+		<div id="capa2">
+			Nombre: <input id="Nombre" style="width: 10em;" data-dojo-type="dijit/form/TextBox"/><br>
+			Apellidos: <input id="Apellidos" style="width: 25em;" data-dojo-type="dijit/form/TextBox"/><br>
+			Email: <input id="Email" style="width: 15em;" data-dojo-type="dijit/form/ValidationTextBox" data-dojo-props="validator:dojox.validate.isEmailAddress,
+			invalidMessage:'This is not a valid email!'">
+		</div>
+		<div id="capa3">
+			Cómo nos ha conocido <select data-dojo-type="dijit/form/ComboBox" id="Referido">
+				<option>Prensa</option>
+				<option selected>Amigos</option>
+				<option>Internet</option>
+				<option>Otros</option></select><br>
+			Fecha de compra: <input id="fecha_compra" style="width: 7em;" data-dojo-type="dijit/form/DateTextBox">
+		</div>
+		<div id="capa4">
+			<h3>Seleccione su nivel de satisfacción con la compra: <span id="cantidad">2</span></h3>
+			<div id="slider"></div>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function(){
+		$("#tabs").tabs();
+		$('#slider').slider({
+		range: 'max',
+		min: 1,
+		max: 10,
+		value: 2,
+		slide: function(event, ui) {
+			$('#cantidad').html(ui.value);
+		}
+	});
+	});
+	</script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		var Parcial=0;
+        var Total=0;
+        var iva=0;
+
+        function contenido(datos)
+        {
+        var nombre="";
+        tamano = datos.length; //tamaño total de la cookie
+
+        for (var i=0; i<tamano; i++)
+        {
+         if (datos.charAt(i)=="@")
+          {
+           nombre= datos.substring(0,i-5);
+           unidades = datos.substring(i-3, i-1);
+           precio = datos.substring(i+2, i+9);
+          }
+        }
+        document.write("<b>"+nombre+"</b> -- "+unidades+ " -- " + precio + " €.<br>");
+        Parcial=parseFloat(unidades)*parseFloat(precio.replace(",","."));
+        document.write("<b>Total parcial producto (sin Iva):</b> " +Parcial+ " €.<hr>");
+        Total = Total + Parcial;
+        }
+
+		function Leer_Cookie(nombre) {
+			for (var i=0; i<13;i++) {
+				var buscamos = nombre + i + "=";
+				var datos;
+				
+				if (document.cookie.length > 0)
+           		{
+           			var inicio = document.cookie.indexOf(buscamos);
+            		if (inicio != -1)
+            		{
+             			inicio += buscamos.length;
+             			fin = document.cookie.indexOf(";", inicio);
+              			if (fin == -1)
+               				fin = document.cookie.length;
+               			datos= unescape(document.cookie.substring(inicio,fin));
+              			contenido(datos); //función que muestra un mensaje
+					}
+				}
+			}
+			document.write("Total de la factura (sin Iva):<b>" + Total + " €.</b><br>");
+        	iva=(Total*21)/100;
+        	document.write("IVA 21%: <b>" + iva.toFixed(2) + " €.</b><br>");
+        	Total=Total+iva;
+        	document.write("Total Factura:<b> " + Total.toFixed(2) + " €.</b><hr>");
+		}
+	</script>
+  </head>
+  <body onload="Leer_Cookie('Factura')">
+    <div>TODO write</div>
+  </body>
+</html>

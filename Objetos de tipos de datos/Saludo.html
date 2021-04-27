@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		function saludo()
+		{
+			var hoy = new Date();
+			var horas = hoy.getHours();
+			var dia_s = hoy.getDay();
+			var dia = hoy.getDate();
+			var dia_semana = "";
+			var mes = hoy.getMonth();
+			var nombre_mes = "";
+			var ano = hoy.getFullYear();
+			var saludo = "";
+			if (dia_s == 1)
+				dia_semana = "Lunes";
+			else if (dia_s == 2)
+				dia_semana = "Martes";
+			else if (dia_s == 3)
+				dia_semana = "Miércole";
+			else if (dia_s == 4)
+				dia_semana = "Jueves";
+			else if (dia_s == 5)
+				dia_semana == "Viernes";
+			else if (dia_s == 6)
+				dia_semana = "Sábado";
+			else if (dia_s == 7)
+				dia_semana = "Domingo";
+			if (mes == 0)
+				nombre_mes = "Enero";
+			else if (mes == 1)
+				nombre_mes = "Febrero";
+			else if (mes == 2)
+				nombre_mes = "Marzo";
+			else if (mes == 3)
+				nombre_mes = "Abril";
+			else if (mes == 4)
+				nombre_mes = "Mayo";
+			else if (mes == 5)
+				nombre_mes == "Junio";
+			else if (mes == 6)
+				nombre_mes = "Julio";
+			else if (mes == 7)
+				nombre_mes = "Agosto";
+			else if (mes == 8)
+				nombre_mes = "Septiembre";
+			else if (mes == 9)
+				nombre_mes = "Octubre";
+			else if (mes == 10)
+				nombre_mes = "Noviembre";
+			else if (mes == 11)
+				nombre_mes = "Diciembre";	
+			document.write("<i>" + dia_semana + ", " + nombre_mes + ", " + dia + ", " + ano + "</i><br>");
+			if (horas < 6)
+				saludo = "Felices sueños";
+			else if ((horas >= 6) && (horas < 12))
+				saludo = "Buenos días";
+			else if ((horas >= 13) && (horas < 18))
+				saludo = "Buenas tardes";
+			else if ((horas >= 18) && (horas < 23))
+				saludo = "Buenas noches";
+			document.write("Saludo: " + saludo);
+		}
+	</script>
+  </head>
+  <body>
+    <h1>Bienvenido</h1>
+	<script>
+		saludo();
+	</script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		table {
+			text-align: center;
+		}
+		th {
+			background: greenyellow;
+		}
+		td {
+			background: burlywood;
+		}
+	</style>
+	<script>
+		function Tabla_Multiplicar()
+		{
+			for (i=1; i<10; i++)
+			{
+				document.write("<table border = 1><tr><th>" + "La tabla del " + i + ":</th>");
+				for (n=1; n<10; n++)
+				{
+					document.write("<td>" + i + " x " + n + " = <b>" + (i*n) + "</b><br></td>");
+				}
+				document.write("</tr><tbody>");
+			}
+			document.write("</tbody></table>")
+		}
+	</script>
+  </head>
+  <body>
+    <script>
+		Tabla_Multiplicar();
+	</script>
+  </body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CINEMANÍA</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
+		<script src="frameworks/scriptaculous-js-1.9.0/src/scriptaculous.js"></script>		   
+		<script>        
+        //función que se ejecuta al producirse el evento click
+        function menu()
+        {
+            alert("Opción no disponible");
+        }
+
+        /*función que se ejecuta al producirse el evento mousedown, el parámetro es necesario en firefox
+        para obtener el objeto event que contiene las características del evento*/
+        function clock(evento)
+        {
+            //Con esta instrución asignamos a la variable el objeto segñun exista
+            var controlevento=evento||event;
+            //Comprobamos que botón han pulsado para provocar el evento
+            if (controlevento.button == 2)
+                    alert("No puedes hacer eso");
+        }
+
+        function addEvent(elemento,nomevento,funcion,captura)
+        {
+           //Si existe attachEvent es Internet Explorer
+          if (elemento.attachEvent)
+          {
+            elemento.attachEvent('on'+nomevento,funcion);
+            return true;
+          }
+          else //En caso contrario comprobamos si dispone del otro controlador
+            if (elemento.addEventListener)
+            {
+              elemento.addEventListener(nomevento,funcion,captura);
+              return true;
+            }
+            else
+              return false;
+        }
+
+        //Función que se encargar de asignar el evento a los enlaces de la página
+        function bloquear(){
+           //Primero asignamos el evento click a las imagenes de la tabla de menú
+           var tablamenu=document.getElementById("menu");
+           var imagenesmenu=tablamenu.getElementsByTagName("a");
+                for(i=0;i<imagenesmenu.length;i++){
+                  addEvent(imagenesmenu[i],"click",menu,false);
+                }
+                //Primero asignamos el evento click a las imagenes de la tabla de menú
+           var tablapeli=document.getElementById("peliculas");
+           var imagenespeli=tablapeli.getElementsByTagName("a");
+           for(i=0;i<imagenespeli.length;i++){
+                  addEvent(imagenespeli[i],"mousedown",clock,false);
+                }
+
+                //Los bucles empiezan en 1 para saltar la cabecera y el vídeo
+        }
+		function animacion(obj, num) {
+			switch(num) {
+				case 1: 
+					new Effect.Pulsate(obj, { pulses: 3, duration: 2 });
+					break;
+				case 2: 
+					new Effect.Scale(obj, 200);
+					break;
+				case 3: 
+					new Effect.Scale(obj, 50);
+					break;
+			}
+		}
+        </script>
+        <style>
+            body{
+                color:#fff;
+                background: #000;
+            }
+            nav img{
+                width:150px;
+                height:75px;                                
+            }
+        </style>
+    </head>
+    <body onLoad="bloquear()">
+        <nav><table border="0" align="center" id="menu">
+            <thead>
+                <tr>
+                    <td colspan="4"><div align="center"><img src="imagenes/cinemania.gif" width="400" height="115"></div></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td width="25%"><a href="#"><img src="imagenes/musica.jpg" onmouseover="animacion(this, 2)" onmouseout="animacion(this, 3)"></a></td>
+                    <td width="25%"><a href="#"><img src="imagenes/video.jpg" onmouseover="animacion(this, 2)" onmouseout="animacion(this, 3)"></a></td>
+                    <td width="25%"><a href="#"><img src="imagenes/sonido.jpg" onmouseover="animacion(this, 2)" onmouseout="animacion(this, 3)"></a></td>
+                    <td width="25%"><a href="#"><img src="imagenes/bso.jpg" onmouseover="animacion(this, 2)" onmouseout="animacion(this, 3)"></a></td>
+                </tr>
+            </tbody>    
+        </table>
+        </nav>
+        <p align="center"><br>
+        </p>
+        <div align="center">
+        <table border="0" id="peliculas" align="center">
+            <tbody>
+            <tr>
+                <td colspan="2" width="50%"><p align="center">
+                  <font color="#FFFF00" size="4"><b><u>NUEVO VÍDEO</u></b></font></p>
+                </td>
+                <td>&nbsp;</td>
+                <td colspan="4" width="50%">
+                  <p align="center">
+                    <font color="#00FF00" size="4"><b><u>Nuevas Carátulas de películas</u></b></font>
+                  </p>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" valign="top" rowspan="2" colspan="2" width="50%">
+                     <p align="center">
+                         <!-- La Etiqueta <Video> el Editor NetBeans no la tinene implementada
+                         correctamente y indica un error de sintaxis que no es cierto
+                         //-->
+                         <video height="200" width="250" autoplay controls>
+                             <source src="http://www.cepi-base.int/media/video.mov">
+                         </video>
+                        </p>
+                </td>
+                <td rowspan="2">&nbsp;</td>
+                <td width="13%">
+                  <a href="imagenes/seductores.gif"><img src="imagenes/seductores.gif" align="absmiddle" width="142" height="178" onmouseover="animacion(this, 1)"></a>
+                </td>
+                <td width="12%">
+                  <a href="imagenes/sentencia.gif"><img src="imagenes/sentencia.gif" width="142" height="178" onmouseover="animacion(this, 1)"></a>
+                </td>
+                <td colspan="2" width="25%">
+                  <a href="imagenes/bobesponja.gif"><img src="imagenes/bobesponja.gif" width="142" height="178" onmouseover="animacion(this, 1)"></a>
+                </td>
+            </tr>
+            <tr>
+                <td width="13%">
+                  <p align="center"><font color="#FFFF00" size="3"><b>Los Seductores</b></font></p>
+                </td>
+                <td width="12%">
+                  <p align="center"><font color="#FFFF00"><b>La Sentencia</b></font></p>
+                </td>
+                <td align="center" colspan="2" width="25%">
+                  <font color="#FFFF00" size="3"><b>Bob Esponja: La batalla Final</b></font>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" rowspan="2" colspan="2">
+                  <p align="center"><b>8 Apellidos Vascos.</b></p>
+                </td>
+                <td rowspan="2">&nbsp;</td>
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+        <footer><p align="right">® Cinemanía 2018/2019.</p></footer>
+</body>
+</html>

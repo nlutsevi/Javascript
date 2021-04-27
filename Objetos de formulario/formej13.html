@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		let montes = ["Everest","Pirineos","Andes","Alpes","Urales"];
+        let playas = ["Cancún","Copacabana","Costa del Sol", "Hawai", "Acapulco"];
+        let rios = ["Ebro","Volga","Amazonas","Nilo", "Támesis"];
+        let ciudades = ["Barcelona","Berlín","Moscu","Roma", "Londres"];
+		
+		function rellenar(tabla) {
+			let cuadrolista = document.getElementById('listado');
+			cuadrolista.options.length=0;
+
+			for(var i=0; i<tabla.length; i++)
+            {                
+                let elemento = document.createElement("option");
+                elemento.text = tabla[i];
+                cuadrolista.add(elemento);
+            } 
+		}
+
+		function buscar()
+        {
+           let lista=document.getElementById("listado");
+           let texto=document.getElementById("Contenido");
+           let i=0; 
+           texto.value=texto.value.toUpperCase();  
+                while ((i < lista.length) &&  (texto.value != lista.options[i].text.toUpperCase()))
+                        i=i+1;                    
+                if (i<lista.length)                        
+                    alert("Elemento encontrado dentro de la lista");
+                else
+                    alert("Elemento no encontrado");
+        }
+	</script>
+  </head>
+  <body>
+    <form id="f1">
+		<p>
+			<input type="radio" id="optradio" value="playas" onchange="rellenar(playas)">Playas
+			<input type="radio" id="optradio" value="rios" onchange="rellenar(rios)">Ríos
+			<input type="radio" id="optradio" value="montañas" onchange="rellenar(montes)">Montañas
+			<input type="radio" id="optradio" value="ciudades" onchange="rellenar(ciudades)">Ciudades
+		</p>
+		<p>
+			<select name="listado" id="listado">
+			  <option>Elije una opción</option>
+			</select>
+		  </p>
+		  <p>
+			  <input type="text" id="Contenido">
+			  <input type="button" id="boton" value="Comprobar" onclick="buscar()">
+		  </p>
+	</form>
+  </body>
+</html>

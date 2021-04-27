@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		function divisores()
+		{
+			var num = eval(prompt("Escribe un numero",""));
+			document.write("<h1>El numero que has introducido es el " + num + "</h1><br>");
+			for (i=1; i<= num; i++)
+			{
+				if ((num % i) == 0)
+				{
+					if (i == 1)
+					{
+						if ((num % num) == 0)
+							document.write("<b>" + num + " es un número primo</b><br>");
+					}
+					document.write("<b>El número puede ser dividido por: " + i + "</b><br>");
+				}
+			}
+		}
+	</script>
+  </head>
+  <body>
+	<script>
+		divisores();
+	</script>
+  </body>
+</html>

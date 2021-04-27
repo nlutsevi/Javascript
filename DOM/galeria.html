@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>	        
+		#imagen {
+                position:absolute;
+                width:275px;
+                height:187px;
+                z-index:1;
+                left: 35px;
+                top: 72px;
+                border-style: solid;
+                border-width: 2px;
+        }
+        #explicacion {
+                position:absolute;
+                width:275px;
+                height:95px;
+                z-index:1;
+                left: 378px;
+                top: 73px;
+                border-style: solid;
+                border-width: 2px;
+        }
+        #boton {
+                position:absolute;
+                z-index:1;
+                left: 391px;
+                top: 179px;
+        }        
+        
+	</style>
+	<script>
+		var posicion = 0;
+		var text1 = "Pintado hacia 1599-1600 por Caravaggio. Narra la historia de David contra Goliath. Se conserva actualmente en el museo del Prado";
+		var text2 = "Encargo que se le realizó a Rubens en 1611. Terminado en 1611 destaca por el uso de la luz y figuras un tanto pasadas de peso";
+		var text3 = "Al oleo sobre lienzo, encargada en 1699 a Caravaggio para decorar la capilla Contarelli en la iglesia romana de San Luis de los Franceses donde aun se conserva";
+		function cambiar () {
+			var imgarray = new Array("imagenes/img1.jpg", "imagenes/img2.jpg", "imagenes/img3.jpg");
+			var textarray = new Array(text1, text2, text3);
+
+			var capaimagen = document.getElementById("imagen");
+			var capatexto = document.getElementById("explicacion");
+
+			capaimagen.innerHTML="<img src='" + imgarray[posicion] + "' height='187px' width='275px'>";
+			capatexto.innerHTML=textarray[posicion];
+
+			posicion++;
+			if (posicion == 3)
+				posicion = 0;
+		}
+	</script>
+  </head>
+  <body>
+	<div id="contenedor">
+		<div id="imagen"></div>
+		<div id="explicacion"></div><br>
+		<div id="button">
+			<input type="button" name="button" id="button" value="siguiente" onclick="cambiar()">
+		</div>
+	</div>
+  </body>
+</html>

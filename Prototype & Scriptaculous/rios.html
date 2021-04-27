@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js">
+        </script>
+        <script type="text/javascript" src="http://script.aculo.us/scriptaculous.js"></script>
+        <style type="text/css">        
+        div#soltar {
+                position:absolute;
+                width:342px;
+                height:332px;
+                z-index:1;
+                left: 217px;
+                top: 68px;
+                background-color: greenyellow;
+        }
+        #arrastrar {
+                position:absolute;
+                z-index:1;
+                left: 17px;
+                top: 68px;
+                background-color: burlywood;
+                width: 129px;
+                
+        }
+        body {
+                background-color: white;
+        }
+
+        div#soltar.hover {
+            border: 5px dashed #aaa;
+            background:#efefef; }
+        ul{
+          font-weight: bold;          
+        }
+        li{
+            margin:25px; 
+            cursor: move;
+        }      
+        </style>
+    </head>
+    <body>
+        <div id="soltar"></div>
+        <script>
+        var pais = ["España","España","Alemania","Alemania","Francia","Italia","Italia","Italia"];
+        var rio = ["Tajo","Turia","Danubio","Elba","Loira","Magra","Arno","Po"];
+        var longitud = ["1006km","280km","2850km","1162km","1012km","70km","111km","652km"];
+        var desembocadura = ["Océano Atlántico","Mar Mediterraneo","Mar Negro","Mar del Norte","Océano Atlántico","Mar de Liguria","Mar de Liguria","Mar Adriático"];
+        var ficha=0;
+        document.write("<div id='arrastrar'><ul>RÍO</ul>");
+        for (var cont=0;cont <rio.length;cont++){
+                document.write("<li id='fila"+cont+"' class='filamover'>"+rio[cont]+"</li>");
+                new Draggable('fila'+cont,{revert:true});
+        }
+        document.write("</div>");
+        Droppables.add('soltar', {
+          accept: 'filamover',
+          hoverclass: 'hover',
+          onDrop: function(arrastrado, receptor, evento) {
+           var fila=arrastrado.id.substring(arrastrado.id.length-1,arrastrado.id.length);
+           receptor.innerHTML="<h2>DATOS DEL RÍO ELEGIDO</h2>";
+           receptor.innerHTML+="País: " + pais[fila] + "<br>";
+           receptor.innerHTML+="Río: " + rio[fila] + "<br>";
+           receptor.innerHTML+="Longitud: " + longitud[fila] + "<br>";
+           receptor.innerHTML+="Desembocadura: " + desembocadura[fila] + "<br>";
+          }
+        });
+        </script>
+    </body>
+</html>

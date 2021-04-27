@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js">
+        </script>
+        <script type="text/javascript" src="http://script.aculo.us/scriptaculous.js"></script>
+        <style>
+        .contenedor{
+            width:305px;
+            border:1px solid #ccc;
+            background-color:#F0F0F0;
+            padding:10px;
+            -webkit-box-shadow: 2px 2px 2px #999; 
+            -moz-box-shadow: 2px 2px 2px #999; 
+            box-shadow: 2px 2px 2px #999;
+            -moz-border-radius: 10px; 
+            -webkit-border-radius: 10px; 
+            border-radius: 10px;
+            }
+        .contenedor_img{
+            padding:2px 2px 2px 2px;
+            }
+        </style>
+       
+    </head>
+    <body>
+        <div class="contenedor" id="contenedor2">
+            <div class="contenedor_img" id="imagen2">
+                <h1>LOS OJOS</h1>
+                Los ojos son órganos visuales que detectan la luz y la convierten 
+                en impulsos electroquímicos que viajan a través de neuronas. 
+                La célula fotoreceptora más simple de la visión consciente asocia 
+                la luz al movimiento. En organismos superiores el ojo es un 
+                sistema óptico complejo que capta la luz de los alrededores, 
+                regula su intensidad a través de un diafragma (iris), enfoca 
+                el objetivo gracias a una estructura ajustable de lentes (cristalino) 
+                para formar la imagen, que luego convierte en un conjunto de 
+                señales eléctricas que llega al cerebro a través de rutas neuronales 
+                complejas que conecta mediante el nervio óptico el ojo a la corteza 
+                visual y otras áreas cerebrales. <br> 
+                Los ojos con resolución han evolucionado en diez diferentes tipos 
+                fundamentales y el 96 % de las especies animales poseen un sistema 
+                óptico complejo.<br><br>
+                <img src="Imagenes/ojo.jpg" height="200px" width="280px">
+            </div>
+            <input type="button" id="boton" value="Ocultar">
+        </div>
+         <script>
+            function ocultar(){
+                if (document.getElementById('boton').value=="Ocultar"){
+                        Effect.SwitchOff('imagen2');
+                        document.getElementById('boton').value="Mostrar";
+                }else{
+                    Effect.BlindDown('imagen2');
+                        document.getElementById('boton').value="Ocultar"; 
+                }
+            }
+            $('boton').observe('click',ocultar);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+	//Declaración de variables
+	var Coche;
+	Coche = "";
+	function Tienes_coche(Coche)
+	{
+		var Mensaje;
+		Mensaje = (Coche == "si") ? "Tienes coche, que bien!!!" : "No dispones de coche";
+		document.write(Mensaje);
+	}
+	</script>
+  </head>
+  <body>
+    <h1>Tienes coche?</h1>
+	<script>
+		Coche = prompt("Tienes coche?");
+		Tienes_coche(Coche);
+	</script>
+  </body>
+</html>

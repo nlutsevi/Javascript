@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
+	<style>
+		div {
+			width: 150px;
+			height: 100px;
+			padding: 10px;
+			border: 1px solid black;
+		}
+	</style>
+	<script>
+		function cambiar_estilos(num) {
+			switch (num) {
+				case 1: 
+					$('capa1').setStyle({backgroundColor: 'red', textAlign: 'center'});
+					break;
+				case 2: 
+					$('capa2').setStyle({backgroundColor: 'green', border: '2px solid black'});
+					break;
+				case 3: 
+					$('capa3').setStyle({backgroundColor: 'yellow', color:'red'});
+			}
+		}
+	</script>
+</head>
+  <body>
+	<div id="capa1">CAPA 1</div>
+	<br>
+	<div id="capa2">CAPA 2</div>
+	<br>
+	<div id="capa3">CAPA 3</div>
+	<br>
+	<input onclick="cambiar_estilos(1)" type="button" value="Cambiar estilos CAPA 1"> &nbsp;
+	<input onclick="cambiar_estilos(2)" type="button" value="Cambiar estilos CAPA 2"> &nbsp;
+	<input onclick="cambiar_estilos(3)" type="button" value="Cambiar estilos CAPA 3">
+
+  </body>
+</html>

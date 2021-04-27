@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		function crear_cookie() {
+			var nombre="Ultimavisita";
+            var valor="";
+            var val="";
+            var dia = new Date();
+            val = dia.getDate();
+
+            if (val<10)
+                {
+                    val = "0" + val;
+                }
+
+            mes= dia.getMonth()+1;
+            if (mes<10)
+                {
+                    val = val + "/0" + mes;
+                }
+            else
+                {
+                    val = val + "/" + mes;
+                }
+
+            val = val + "/" + dia.getFullYear();
+
+            valor = prompt("Como te Llamas?");
+            valor = valor + " - " + val;
+
+            fecha = new Date(2021, 12, 31);
+            document.cookie = nombre + "=" + valor + ";" + ((fecha == null) ? "" : (" expires=" + fecha.toGMTString()));              
+        }
+		function mostrar_mensaje(datos) {
+			var nombre = "";
+			var fecha = new Date();
+			var hoy = new Date();
+			var dias_pasados = "";
+			var tamano = datos.length;
+
+			for (var i=0;i<tamano;i++) {
+				if (datos.charAt(i) == '-') {
+					nombre = datos.substring(0, i-1);
+					fecha = datos.substring(i+2, tamano);
+				}
+			}
+			dia = fecha.substring(0, 2);
+			mes = fecha.substring(3, 5);
+			anyo = fecha.substring(6, 10);
+			fecha = new Date(anyo, mes-1, dia);
+			
+			document.write("<h1><b>Hola " + nombre + "</b></h1>");
+
+			dias_pasados = hoy.getTime() - fecha.getTime();
+			dias_pasados=parseInt(dias_pasados/86400000)
+
+			document.write("<h1><b>Accediste a la página hace " + dias_pasados + " días</b></h1>");
+			modificar_cookie(nombre);
+		}
+		function leer_cookie(nombre) {
+			var fin="";
+			var datos;
+            var buscamos = nombre + "=";
+            if (document.cookie.length > 0)
+            {
+                var inicio = document.cookie.indexOf(buscamos);
+                if (inicio != -1)
+                {
+                    inicio += buscamos.length;
+                    fin = document.cookie.indexOf(";", inicio);
+                    if (fin == -1)
+                        fin = document.cookie.length;
+					datos = unescape(document.cookie.substring(inicio, fin));
+					mostrar_mensaje(datos);
+				}
+				else
+				{
+					alert("Es la primera vez que nos visitas?")
+					crear_cookie();
+					alert("Pulsa F5 para refrescar la página");
+				}
+			}
+			else {
+				alert("Es la primera vez que nos visitas?")
+				crear_cookie();
+				alert("Pulsa F5 para refrescar la página");
+			}
+		}
+		function modificar_cookie(nombre) {
+			var nom = "ultimavisita";
+			var valor = "";
+			var val = "";
+			var dia = new Date();
+			val = dia.getDate();
+
+			if (val < 10)
+				val = "0"+val;
+			mes = dia.getMonth()+1;
+			if (mes < 10) {
+				mes = "/0"+mes;
+				val = val + mes;
+			}
+			else
+				val = val + "/" + mes;
+			year = "/"+dia.getFullYear();
+			val = val + year;
+
+			valor = nombre + " - " + val;
+
+			fecha = new Date(2021, 12, 31);
+			document.cookie = nombre + "=" + valor + ";" + ((fecha == null) ? "" : (" expires=" + fecha.toGMTString()));                
+
+		}
+	</script>
+  </head>
+  <body onload="leer_cookie('Ultimavisita')">
+    <div>TODO write</div>
+  </body>
+</html>

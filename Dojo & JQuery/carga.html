@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/humanity/jquery-ui.css">
+
+  </head>
+  <body onload="progress()">
+    <div id="progressbar"></div>
+	<div id="percent"></div>
+	<script>
+		var valor=0;
+		function progress() {
+			valor++;
+			$("#progressbar").progressbar( {
+				value: valor,
+				change: function (event, ui){
+                      let capacambio = document.getElementById("percent");
+                         capacambio.innerHTML="<h3 align='center'>"+valor+" %<h3>";
+				},
+				complete: function(event, ui) {
+					window.location.href = "encuesta.html";
+				}
+			});
+			if (valor < 100) {
+				setTimeout(progress, 100);
+			}
+		}
+	</script>
+  </body>
+</html>

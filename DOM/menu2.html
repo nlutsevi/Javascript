@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		p {
+			background-color: yellow;
+			text-decoration: underline;
+			border: 3px dotted;
+		}
+	</style>
+	<script>
+		function anadir() {
+			var p = document.createElement("p");
+			var txt = document.createTextNode(document.getElementById("texto").value);
+			p.appendChild(txt);
+			document.body.appendChild(p);
+		}
+		function borrar() {
+			var p = document.getElementsByTagName("p");
+			while (p.length > 0)
+				document.body.removeChild(p[0]);
+		}
+	</script>
+  </head>
+  <body>
+    <h1>AÑADA SU PEDIDO PARA EL MENÚ</h1>
+	<textarea name="texto" id="texto" rows="1" cols="50"></textarea>
+	<input type="button" name="añadir" id="añadir" value="Añadir" onclick="anadir()">
+	<input type="button" name="borrar" id="borrar" value="Borrar todo" onclick="borrar()">
+  </body>
+</html>

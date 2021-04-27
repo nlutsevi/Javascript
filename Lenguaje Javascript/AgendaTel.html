@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		function agenda()
+		{
+			var Nombre = ["Ana", "Jorge", "Miguel Angel", "Eva", "Sonia"];
+			var Apellidos = ["Roman Burgos", "Espina Mastin", "Marea Molinet", "Sanz Tormanta", "Domingo Polo"];
+			var Telefono = ["93-455-43-22", "91-655-33-21", "93-433-33-99", "93-456-77-67", "91-444-88-09"];
+			for (i=0; i<Nombre.length; i++)
+			{
+				document.write("<b>" + Nombre[i] + " -- " + Apellidos[i] + " -- " + Telefono[i] + "</b><br>");
+			}
+		}
+	</script>
+  </head>
+  <body>
+    <h1 style="text-align: center;"><u>AGENDA DE TELÉFONOS</u></h1>
+	<script>
+		agenda();
+	</script>
+  </body>
+</html>

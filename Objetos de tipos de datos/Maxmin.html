@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO apply a title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		function maxmin()
+		{
+			var num1 = eval(prompt("Introduce el primer número", "0"));
+			var num2 = eval(prompt("Introduce el segundo número", "0"));
+			var num3 = eval(prompt("Introduce el tercer número", "0"));
+			var num4 = eval(prompt("Introduce el cuarto número", "0"));
+			var num5 = eval(prompt("Introduce el quinto número", "0"));
+			var min = Math.min(num1, num2, num3, num4, num5)
+			var min_str = min.toString();
+			var min_red = min_str.fontcolor("red");
+			var max = Math.max(num1, num2, num3, num4, num5);
+			var max_str = max.toString();
+			var max_red = max_str.fontcolor("red");
+			document.write("<b>Los números introducidos son: " + num1 + ", " + num2 + ", " + num3 + ", " + num4 + ", " + num5 + "</b><br><br>");
+			document.write("<b>El número mínimo es " + min_red + "</b><br><br>");
+			document.write("<b>El número máximo es " + max_red + "</b><br><br>");
+		}
+	</script>
+  </head>
+  <body>
+    <h1 style="text-align: center;"><u>MÁXIMO Y MÍNIMO</u></h1>
+	<script>
+		maxmin();
+	</script>
+  </body>
+</html>
